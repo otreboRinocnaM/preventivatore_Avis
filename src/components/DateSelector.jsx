@@ -22,6 +22,11 @@ export default function DateSelector({
     ? new Date(startDate.getTime() + 24 * 60 * 60 * 1000)
     : new Date(today.getTime() + 24 * 60 * 60 * 1000);
 
+  const popperModifiers = [
+    { name: 'preventOverflow', options: { boundary: 'viewport', padding: 8 } },
+    { name: 'flip', options: { fallbackPlacements: ['top-start', 'bottom-start'] } },
+  ];
+
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <div className="flex items-center gap-2 mb-4">
@@ -59,6 +64,8 @@ export default function DateSelector({
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
+            popperModifiers={popperModifiers}
+            popperPlacement="bottom-start"
           />
           {errors?.startDate && (
             <p className="text-red-500 text-xs mt-1">{errors.startDate}</p>
@@ -86,6 +93,8 @@ export default function DateSelector({
             showMonthDropdown
             showYearDropdown
             dropdownMode="select"
+            popperModifiers={popperModifiers}
+            popperPlacement="bottom-start"
             disabled={!startDate}
           />
           {errors?.endDate && (
