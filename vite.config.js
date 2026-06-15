@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/preventivatore_avis/',
+  base: '/preventivatore_Avis/',
 });
